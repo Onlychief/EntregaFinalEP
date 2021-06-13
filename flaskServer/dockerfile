@@ -1,0 +1,26 @@
+FROM python:latest
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN pip install --upgrade pip
+RUN pip install flask
+RUN pip install mariadb
+RUN pip install click
+RUN pip install colorama
+RUN pip install itsdangerous
+RUN pip install Flask
+RUN pip install Jinja2
+RUN pip install MarkupSafe
+RUN pip install Werkzeug
+
+#############################
+RUN pip install appdirs
+RUN pip install distlib
+RUN pip install filelock
+RUN pip install six
+############################
+WORKDIR /flaskProject
+COPY ./webserver /flaskProject
+
+CMD ["python", "main.py"]
+
+EXPOSE 5000

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ITP</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/logo-ITP.png" rel="icon">
+  <link href="static/img/logo-ITP.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<br>
+<body background="img/fondo1.jpg" bgcolor="FFCECB">
+<h1 align = "center">Listado de Estudiantes</h1>
+<br>
+<a href="{{ url_for('listar_estudiantes') }}"></a>
+<div class ="col sm-12">
+<table class="table table-dark table-striped">
+    <div class="row">
+    <div class ="col sm-12">
+    <div class = "col sm-3"> </div>
+    <div class = "col sm-6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Semestre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in listarEstudianteCaselista %}
+        <tr>
+            <td>{{ estudiante[0] }}</td>
+            <td>{{ estudiante[1] }}</td>
+            <td>{{ estudiante[2] }}</td>
+            <td>{{ estudiante[3] }}</td>
+            <td>{{ estudiante[4] }}</td>
+            <td>{{ estudiante[5] }}</td>
+            <td>
+            <a href="/estudiantes/eliminar/{{estudiante.0}}" class="btn btn-danger btn-delete">Eliminar</a> 
+            </td>
+        </tr>
+        {%endfor%}
+    </td>  
+    </div>
+    </div>
+    </div>
+    </tbody>
+</table>
+</div>
+</body>
+<br>
+<a href="{{ url_for('crear_estudiantes') }}">
+    <button type="button" class="btn btn-success btn" href="{{ url_for('crear_estudiantes') }}">
+    Agregar Nuevo Estudiante
+    </button>
+    </a>
+</br>
+<br>
+    <a href="{{ url_for('ver_materias_docente') }}">
+    <button type="button" class="btn btn-success btn" href="{{ url_for('ver_materias_docente') }}">
+    Volver
+    </button>
+    </a>
+</br>
+    
+

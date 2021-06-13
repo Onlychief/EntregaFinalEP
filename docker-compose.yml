@@ -1,0 +1,21 @@
+version: "3.4"
+#EJEMPLO FUNCIONAL
+services:
+
+  webserver:
+    image: onlychiefy/entrega_final:1.1
+    depends_on:
+      - mariadbpython
+    ports:
+      - "5000:5000"
+    restart: 'always'
+
+  mariadbpython:
+    image: onlychiefy/entrega_final:1.2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+    container_name: mariadbpython
+    ports:
+      - 3306:3306    
+  

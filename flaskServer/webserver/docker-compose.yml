@@ -1,0 +1,32 @@
+version: "3"
+services:
+    miapiflask: 
+        build:   
+            context: ./
+            dockerfile: Dockerfile
+        container_name: miapiflask
+        depends_on:
+            - mariadbpython
+        restart: always
+        ports: 
+            - 5000:5000
+    mariadbpython:
+        image: mariadb
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: "123456"
+        container_name: mariadbpython
+        volumes:
+            - ./data:/var/lib/mysql
+        ports:
+            - 3306:3306
+               
+
+    
+            
+    
+            
+    
+
+
+    
